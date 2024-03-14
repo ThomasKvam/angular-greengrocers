@@ -1,8 +1,37 @@
-<ul class="item-list store--item-list">
-    <li  *ngFor="let item of items | async">
+<button (click)="showAll()">All</button>
+<div>
+  <button (click)="sortByVegetables()">Vegetables</button>
+  <button (click)="sortByFruit()">Fruit</button>
+</div>
+<button>Price</button>
+<button>Name</button>
+
+<ul class="item-list store--item-list" *ngIf="!showFruits && !showVegetables">
+  <li *ngFor="let item of items">
+    <div class="store--item-icon">
+      <img src="../assets/icons/{{item.id}}.svg" alt="{{ item.name }}" />
+    </div>
+    <button (click)="addItemToCart(item)">Add to cart</button>
+  </li>
+</ul>
+
+<ul class="item-list store--item-list" *ngIf="showVegetables">
+  <li *ngFor="let item of vegetables">
       <div class="store--item-icon">
-        <img src="../assets/icons/{{item.id}}.svg"  alt="{{item.name}}"/>
+        <img src="../assets/icons/{{item.id}}.svg" alt="{{ item.name }}" />
       </div>
       <button (click)="addItemToCart(item)">Add to cart</button>
-    </li>
-  </ul>
+  
+  </li>
+</ul>
+
+<ul class="item-list store--item-list" *ngIf="showFruits">
+  <li *ngFor="let item of fruits">
+      <div class="store--item-icon">
+        <img src="../assets/icons/{{item.id}}.svg" alt="{{ item.name }}" />
+      </div>
+      <button (click)="addItemToCart(item)">Add to cart</button>
+    
+  </li>
+</ul>
+
