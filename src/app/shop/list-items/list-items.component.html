@@ -3,8 +3,8 @@
   <button (click)="sortByVegetables()">Vegetables</button>
   <button (click)="sortByFruit()">Fruit</button>
 </div>
-<button>Price</button>
-<button>Name</button>
+<button (click)="sortByPrice()">Price</button>
+<button (click)="sortByName()">Name</button>
 
 <ul class="item-list store--item-list" *ngIf="!showFruits && !showVegetables">
   <li *ngFor="let item of items">
